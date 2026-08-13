@@ -26,6 +26,17 @@ const CLOUDS = [
   { id: 'cloud-e', top: '17%', scale: 0.75, dur: '85s', delay: '-28s', opacity: 0.95 },
 ]
 
+const COINS = Array.from({ length: 2 }, () => ({
+  left: 5 + Math.random() * 85,
+  top: 8 + Math.random() * 38,
+  delay: Math.random() * 5,
+}))
+
+const QUESTION_BLOCKS = Array.from({ length: 1 }, () => ({
+  left: 5 + Math.random() * 85,
+  top: 8 + Math.random() * 38,
+}))
+
 function PixelCloud({ top, scale, dur, delay, opacity }) {
   return (
     <svg
@@ -126,6 +137,69 @@ function PixelBush({ style }) {
   )
 }
 
+const MUSHROOM_IMG = '/mushrooms.png'
+
+function PixelCoin({ style }) {
+  return (
+    <span className="coin-wrap" style={style}>
+      <svg className="coin-svg" viewBox="0 0 16 16" aria-hidden="true">
+        <g shapeRendering="crispEdges">
+          <rect x="4" y="0" width="8" height="2" fill="#ffd21a" />
+          <rect x="2" y="2" width="12" height="2" fill="#ffd21a" />
+          <rect x="2" y="4" width="12" height="2" fill="#ffd21a" />
+          <rect x="1" y="6" width="14" height="2" fill="#ffd21a" />
+          <rect x="1" y="8" width="14" height="2" fill="#ffd21a" />
+          <rect x="2" y="10" width="12" height="2" fill="#ffd21a" />
+          <rect x="2" y="12" width="12" height="2" fill="#ffd21a" />
+          <rect x="4" y="14" width="8" height="2" fill="#ffd21a" />
+          <rect x="2" y="2" width="4" height="2" fill="#ffe45d" />
+          <rect x="2" y="4" width="2" height="2" fill="#ffe45d" />
+          <rect x="1" y="6" width="4" height="2" fill="#ffe45d" />
+          <rect x="11" y="8" width="4" height="2" fill="#d9a500" />
+          <rect x="10" y="10" width="4" height="2" fill="#d9a500" />
+          <rect x="10" y="12" width="2" height="2" fill="#d9a500" />
+        </g>
+      </svg>
+    </span>
+  )
+}
+
+function QuestionBlock({ style }) {
+  return (
+    <svg className="question-block" viewBox="0 0 32 32" style={style} aria-hidden="true">
+      <g shapeRendering="crispEdges">
+        <rect x="0" y="0" width="32" height="4" fill="#b45f1f" />
+        <rect x="0" y="28" width="32" height="4" fill="#b45f1f" />
+        <rect x="0" y="0" width="4" height="32" fill="#b45f1f" />
+        <rect x="28" y="0" width="4" height="32" fill="#b45f1f" />
+        <rect x="4" y="4" width="24" height="24" fill="#ffb500" />
+        <rect x="4" y="4" width="8" height="4" fill="#ffe08a" />
+        <rect x="4" y="8" width="4" height="4" fill="#ffe08a" />
+        <rect x="8" y="4" width="4" height="8" fill="#3a2a00" />
+        <rect x="12" y="4" width="4" height="4" fill="#3a2a00" />
+        <rect x="16" y="4" width="4" height="4" fill="#3a2a00" />
+        <rect x="20" y="4" width="4" height="4" fill="#3a2a00" />
+        <rect x="4" y="8" width="4" height="4" fill="#3a2a00" />
+        <rect x="20" y="8" width="4" height="4" fill="#3a2a00" />
+        <rect x="20" y="12" width="4" height="4" fill="#3a2a00" />
+        <rect x="16" y="16" width="4" height="4" fill="#3a2a00" />
+        <rect x="12" y="20" width="4" height="4" fill="#3a2a00" />
+        <rect x="12" y="24" width="4" height="4" fill="#3a2a00" />
+      </g>
+    </svg>
+  )
+}
+
+function Mushroom() {
+  return (
+    <div className="mushroom-walk">
+      <div className="mushroom-jump">
+        <img className="mushroom-sprite" src={MUSHROOM_IMG} alt="" />
+      </div>
+    </div>
+  )
+}
+
 export default function Background() {
   return (
     <div className="bg-scene" aria-hidden="true">
@@ -146,9 +220,19 @@ export default function Background() {
             />
           ))}
         </div>
+        {QUESTION_BLOCKS.map((b, i) => (
+          <QuestionBlock key={i} style={{ top: `${b.top}%`, left: `${b.left}%` }} />
+        ))}
+        {COINS.map((c, i) => (
+          <PixelCoin
+            key={i}
+            style={{ top: `${c.top}%`, left: `${c.left}%`, animationDelay: `${c.delay}s` }}
+          />
+        ))}
         <div className="pixel-ground night" />
         <PixelBush style={{ left: '18%' }} />
         <PixelBush style={{ left: '72%' }} />
+        <Mushroom />
       </div>
 
       <div className="bg-layer sky">
@@ -156,11 +240,21 @@ export default function Background() {
         {CLOUDS.map((c) => (
           <PixelCloud key={c.id} {...c} />
         ))}
+        {QUESTION_BLOCKS.map((b, i) => (
+          <QuestionBlock key={i} style={{ top: `${b.top}%`, left: `${b.left}%` }} />
+        ))}
+        {COINS.map((c, i) => (
+          <PixelCoin
+            key={i}
+            style={{ top: `${c.top}%`, left: `${c.left}%`, animationDelay: `${c.delay}s` }}
+          />
+        ))}
         <div className="pixel-ground" />
         <PixelBush style={{ left: '10%' }} />
         <PixelBush style={{ left: '38%' }} />
         <PixelBush style={{ left: '62%' }} />
         <PixelBush style={{ left: '86%' }} />
+        <Mushroom />
       </div>
     </div>
   )
