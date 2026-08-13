@@ -3,12 +3,12 @@ export const profile = {
   firstName: 'Mirza',
   lastName: 'Abyaz Awsaf',
   role: 'AI_Engineer',
-  tagline: "I design and build fast, accessible and delightful web experiences.",
+  //tagline: "I design and build fast, accessible and delightful web experiences.",
   bio: 'Passionate developer who loves turning complex problems into simple, elegant solutions. When I am not coding, you will find me exploring new tech, writing, or hiking.',
   email: 'awsafabyaz2@gmail.com',
   phone: '+8801912086413',
   location: 'Dhaka, Bangladesh',
-  resumeUrl: 'E:\\AI tools\\Portfolio\\src\\assets\\resume.pdf',
+  resumeUrl: 'src/assets/resume.pdf',
   available: true,
   socials: {
     github: 'https://github.com/MirzaAbyazAwsaf',
@@ -41,29 +41,29 @@ export const aboutPoints = [
   },
 ]
 
-export const projectFilters = ['All', 'Web App', 'Mobile', 'Open Source']
+export const projectFilters = []
 
 export const projects = [
   {
-    title: 'Dashboard Pro',
+    title: 'Traffic Managemnent System',
     description: 'Real-time analytics dashboard with live charts, dark mode and a drag-and-drop widget builder.',
     category: 'Web App',
-    tags: ['React', 'TypeScript', 'WebSockets', 'D3'],
+    tags: [],
     link: '#',
     demo: '#',
     featured: true,
   },
   {
-    title: 'FitTrack',
+    title: 'Atumatic Traffic Count and Classification (ATCC)',
     description: 'Cross-platform fitness tracker with workout plans, progress charts and offline-first sync.',
     category: 'Mobile',
-    tags: ['React Native', 'SQLite', 'Reanimated'],
+    tags: [],
     link: '#',
     demo: '#',
     featured: false,
   },
   {
-    title: 'OpenUI Kit',
+    title: 'Automatic Vhecle Classification for Toll plazas (AVC)',
     description: 'Open-source accessible component library with 40+ components used by 1k+ developers.',
     category: 'Open Source',
     tags: ['React', 'Storybook', 'Vite'],
@@ -72,67 +72,41 @@ export const projects = [
     featured: true,
   },
   {
-    title: 'ShopFlow',
+    title: 'DataForge',
     description: 'Headless e-commerce storefront with cart, checkout and Stripe payments integration.',
     category: 'Web App',
-    tags: ['Next.js', 'Stripe', 'Postgres', 'Tailwind'],
+    tags: [],
     link: '#',
     demo: '#',
     featured: false,
   },
-  {
-    title: 'Chat App',
-    description: 'Realtime group chat with typing indicators, read receipts and end-to-end encryption.',
-    category: 'Web App',
-    tags: ['React', 'Socket.io', 'MongoDB'],
-    link: '#',
-    demo: '#',
-    featured: false,
-  },
-  {
-    title: 'DevNotes',
-    description: 'Markdown note-taking app with syntax highlighting and local-first storage.',
-    category: 'Open Source',
-    tags: ['React', 'Tiptap', 'IndexedDB'],
-    link: '#',
-    demo: '#',
-    featured: false,
-  },
+  
 ]
 
 export const experience = [
   {
-    role: 'Senior Frontend Engineer',
-    company: 'TechCorp Inc.',
-    period: '2023 — Present',
+    role: 'AI_Engineer',
+    company: 'Regnum Resources Ltd.',
+    period: 'March2025 — Present',
     points: [
       'Lead a team of 4 engineers building a design system used by 12 product teams.',
       'Reduced page load time by 45% via code-splitting and edge caching.',
       'Mentored junior developers through weekly 1:1s and code reviews.',
     ],
-    stack: ['React', 'TypeScript', 'Vite', 'GraphQL'],
+    stack: [],
   },
   {
-    role: 'Full-Stack Developer',
-    company: 'StartupHub',
-    period: '2021 — 2023',
+    role: 'Intern',
+    company: 'Regnum Resources Ltd.',
+    period: 'Dec 2024 — Feb 2025',
     points: [
       'Shipped 15+ features across web and mobile used by 50k monthly active users.',
       'Designed REST APIs and data models powering the core product.',
       'Introduced automated CI/CD pipeline cutting release time in half.',
     ],
-    stack: ['React', 'Node.js', 'PostgreSQL', 'Docker'],
+    stack: [],
   },
-  {
-    role: 'Frontend Developer',
-    company: 'AgencyLab',
-    period: '2020 — 2021',
-    points: [
-      'Built pixel-perfect marketing sites for 20+ clients with a 98 Lighthouse score.',
-      'Collaborated closely with designers on a reusable component library.',
-    ],
-    stack: ['JavaScript', 'React', 'Sass', 'Figma'],
-  },
+
 ]
 
 export const techStackTop = [

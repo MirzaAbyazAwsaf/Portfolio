@@ -35,7 +35,7 @@ export default function TechStack() {
     <section id="stack" className="section">
       <Reveal>
         <h2 className="section-title">
-          <span className="section-num">04.</span> Tech Stack
+          <span className="section-num"></span> Tech Stack
         </h2>
       </Reveal>
 

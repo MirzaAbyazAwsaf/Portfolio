@@ -67,7 +67,7 @@ export default function Projects() {
     <section id="projects" className="section">
       <Reveal>
         <h2 className="section-title">
-          <span className="section-num">02.</span> Projects
+          <span className="section-num"></span> Projects
         </h2>
       </Reveal>
 

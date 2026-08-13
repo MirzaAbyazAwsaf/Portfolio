@@ -11,7 +11,7 @@ export default function About() {
     <section id="about" className="section">
       <Reveal>
         <h2 className="section-title">
-          <span className="section-num">01.</span> About Me
+          <span className="section-num"></span> About Me
         </h2>
       </Reveal>
 

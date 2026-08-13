@@ -41,7 +41,7 @@ export default function Contact() {
     <section id="contact" className="section">
       <Reveal>
         <h2 className="section-title">
-          <span className="section-num">05.</span> Lets Connect!
+          <span className="section-num"></span> Lets Connect!
         </h2>
       </Reveal>
 

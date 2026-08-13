@@ -10,88 +10,117 @@ function seededRandom(seed) {
 
 const rnd = seededRandom(20260813)
 
-const STARS = Array.from({ length: 90 }, () => ({
+const STARS = Array.from({ length: 70 }, () => ({
   left: rnd() * 100,
   top: rnd() * 62,
-  size: rnd() < 0.8 ? 1 + rnd() : 1.8 + rnd() * 1.4,
+  size: 2 + rnd() * 2,
   delay: rnd() * 4,
   dur: 2.5 + rnd() * 3.5,
 }))
 
 const CLOUDS = [
-  { id: 'cloud-a', top: '11%', scale: 1.15, dur: '70s', delay: '-8s', opacity: 0.98 },
-  { id: 'cloud-b', top: '26%', scale: 0.85, dur: '92s', delay: '-36s', opacity: 0.9 },
-  { id: 'cloud-c', top: '4%', scale: 0.6, dur: '58s', delay: '-20s', opacity: 0.85 },
-  { id: 'cloud-d', top: '34%', scale: 1.05, dur: '84s', delay: '-52s', opacity: 0.9 },
-  { id: 'cloud-e', top: '16%', scale: 0.75, dur: '64s', delay: '-28s', opacity: 0.95 },
+  { id: 'cloud-a', top: '12%', scale: 1.2, dur: '90s', delay: '-8s', opacity: 1 },
+  { id: 'cloud-b', top: '26%', scale: 0.85, dur: '110s', delay: '-36s', opacity: 0.9 },
+  { id: 'cloud-c', top: '5%', scale: 0.6, dur: '75s', delay: '-20s', opacity: 0.85 },
+  { id: 'cloud-d', top: '36%', scale: 1.05, dur: '100s', delay: '-52s', opacity: 0.9 },
+  { id: 'cloud-e', top: '17%', scale: 0.75, dur: '85s', delay: '-28s', opacity: 0.95 },
 ]
 
-function AuroraCurtain({ id, className = '', base, bright, path }) {
-  const dim = (a) => `rgba(${base},${a})`
-  const lit = (a) => `rgba(${bright},${a})`
+function PixelCloud({ top, scale, dur, delay, opacity }) {
   return (
-    <svg className={`aurora-curtain ${className}`} viewBox="0 0 1440 520" preserveAspectRatio="none">
-      <defs>
-        <clipPath id={`${id}-clip`}>
-          <path d={path} />
-        </clipPath>
-        <linearGradient id={`${id}-fade`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#000" />
-          <stop offset="0.15" stopColor="#fff" />
-          <stop offset="0.6" stopColor="#fff" />
-          <stop offset="0.85" stopColor="#222" />
-          <stop offset="1" stopColor="#000" />
-        </linearGradient>
-        <linearGradient id={`${id}-body`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor={dim(0)} />
-          <stop offset="0.4" stopColor={dim(0.55)} />
-          <stop offset="0.8" stopColor={dim(0.2)} />
-          <stop offset="1" stopColor={dim(0)} />
-        </linearGradient>
-        <linearGradient id={`${id}-shaft`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor={lit(0)} />
-          <stop offset="0.45" stopColor={lit(0.55)} />
-          <stop offset="0.75" stopColor={lit(0.15)} />
-          <stop offset="1" stopColor={lit(0)} />
-        </linearGradient>
-        <pattern id={`${id}-rays`} width="26" height="520" patternUnits="userSpaceOnUse">
-          <rect width="26" height="520" fill={`url(#${id}-body)`} />
-          <rect x="11" width="5" height="520" fill={`url(#${id}-shaft)`} />
-        </pattern>
-      </defs>
-      <g clipPath={`url(#${id}-clip)`} mask={`url(#${id}-fade)`}>
-        <rect width="1440" height="520" fill={`url(#${id}-rays)`} />
+    <svg
+      className="pixel-cloud"
+      style={{ top, '--scale': scale, '--op': opacity, '--dur': dur, '--delay': delay }}
+      viewBox="0 0 96 40"
+      aria-hidden="true"
+    >
+      <g shapeRendering="crispEdges">
+        <rect x="32" y="0" width="8" height="8" fill="#ffffff" />
+        <rect x="40" y="0" width="8" height="8" fill="#ffffff" />
+        <rect x="16" y="8" width="8" height="8" fill="#ffffff" />
+        <rect x="24" y="8" width="8" height="8" fill="#eef5ff" />
+        <rect x="32" y="8" width="8" height="8" fill="#ffffff" />
+        <rect x="40" y="8" width="8" height="8" fill="#eef5ff" />
+        <rect x="48" y="8" width="8" height="8" fill="#ffffff" />
+        <rect x="56" y="8" width="8" height="8" fill="#ffffff" />
+        <rect x="8" y="16" width="8" height="8" fill="#ffffff" />
+        <rect x="16" y="16" width="8" height="8" fill="#ffffff" />
+        <rect x="24" y="16" width="8" height="8" fill="#ffffff" />
+        <rect x="32" y="16" width="8" height="8" fill="#eef5ff" />
+        <rect x="40" y="16" width="8" height="8" fill="#ffffff" />
+        <rect x="48" y="16" width="8" height="8" fill="#eef5ff" />
+        <rect x="56" y="16" width="8" height="8" fill="#ffffff" />
+        <rect x="64" y="16" width="8" height="8" fill="#ffffff" />
+        <rect x="72" y="16" width="8" height="8" fill="#ffffff" />
+        <rect x="8" y="24" width="8" height="8" fill="#d8e8ff" />
+        <rect x="16" y="24" width="8" height="8" fill="#ffffff" />
+        <rect x="24" y="24" width="8" height="8" fill="#d8e8ff" />
+        <rect x="32" y="24" width="8" height="8" fill="#ffffff" />
+        <rect x="40" y="24" width="8" height="8" fill="#d8e8ff" />
+        <rect x="48" y="24" width="8" height="8" fill="#ffffff" />
+        <rect x="56" y="24" width="8" height="8" fill="#d8e8ff" />
+        <rect x="64" y="24" width="8" height="8" fill="#ffffff" />
       </g>
     </svg>
   )
 }
 
-function Cloud({ id, top, scale, dur, delay, opacity }) {
+function PixelSun() {
   return (
-    <svg
-      className="cloud"
-      style={{ top, '--scale': scale, '--op': opacity, '--dur': dur, '--delay': delay }}
-      viewBox="0 0 340 160"
-    >
-      <defs>
-        <linearGradient id={`${id}-top`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#ffffff" />
-          <stop offset="1" stopColor="#e9f2fb" />
-        </linearGradient>
-        <linearGradient id={`${id}-bot`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#dae8f6" />
-          <stop offset="1" stopColor="#bfd5ec" />
-        </linearGradient>
-      </defs>
-      <g>
-        <ellipse cx="86" cy="118" rx="82" ry="32" fill={`url(#${id}-bot)`} />
-        <ellipse cx="86" cy="106" rx="62" ry="30" fill={`url(#${id}-top)`} />
-        <ellipse cx="160" cy="112" rx="70" ry="34" fill={`url(#${id}-bot)`} />
-        <ellipse cx="160" cy="96" rx="54" ry="30" fill={`url(#${id}-top)`} />
-        <ellipse cx="232" cy="120" rx="64" ry="30" fill={`url(#${id}-bot)`} />
-        <ellipse cx="232" cy="108" rx="48" ry="26" fill={`url(#${id}-top)`} />
-        <ellipse cx="112" cy="82" rx="46" ry="34" fill="#ffffff" />
-        <ellipse cx="188" cy="74" rx="38" ry="30" fill="#ffffff" />
+    <svg className="pixel-sun" viewBox="0 0 64 64" aria-hidden="true">
+      <g shapeRendering="crispEdges">
+        <rect x="28" y="0" width="8" height="8" fill="#ffd21a" />
+        <rect x="28" y="56" width="8" height="8" fill="#ffd21a" />
+        <rect x="0" y="28" width="8" height="8" fill="#ffd21a" />
+        <rect x="56" y="28" width="8" height="8" fill="#ffd21a" />
+        <rect x="12" y="12" width="8" height="8" fill="#ffd21a" />
+        <rect x="44" y="12" width="8" height="8" fill="#ffd21a" />
+        <rect x="12" y="44" width="8" height="8" fill="#ffd21a" />
+        <rect x="44" y="44" width="8" height="8" fill="#ffd21a" />
+        <rect x="16" y="16" width="8" height="8" fill="#fff3a0" />
+        <rect x="24" y="16" width="8" height="8" fill="#ffe45d" />
+        <rect x="32" y="16" width="8" height="8" fill="#ffe45d" />
+        <rect x="40" y="16" width="8" height="8" fill="#ffd21a" />
+        <rect x="16" y="24" width="8" height="8" fill="#ffe45d" />
+        <rect x="24" y="24" width="8" height="8" fill="#ffd21a" />
+        <rect x="32" y="24" width="8" height="8" fill="#ffd21a" />
+        <rect x="40" y="24" width="8" height="8" fill="#ffe45d" />
+        <rect x="16" y="32" width="8" height="8" fill="#ffe45d" />
+        <rect x="24" y="32" width="8" height="8" fill="#ffd21a" />
+        <rect x="32" y="32" width="8" height="8" fill="#ffd21a" />
+        <rect x="40" y="32" width="8" height="8" fill="#ffe45d" />
+        <rect x="16" y="40" width="8" height="8" fill="#ffd21a" />
+        <rect x="24" y="40" width="8" height="8" fill="#ffe45d" />
+        <rect x="32" y="40" width="8" height="8" fill="#ffe45d" />
+        <rect x="40" y="40" width="8" height="8" fill="#fff3a0" />
+      </g>
+    </svg>
+  )
+}
+
+function PixelBush({ style }) {
+  return (
+    <svg className="pixel-bush" viewBox="0 0 80 40" style={style} aria-hidden="true">
+      <g shapeRendering="crispEdges">
+        <rect x="24" y="0" width="8" height="8" fill="currentColor" />
+        <rect x="32" y="0" width="8" height="8" fill="currentColor" />
+        <rect x="8" y="8" width="8" height="8" fill="currentColor" />
+        <rect x="16" y="8" width="8" height="8" fill="currentColor" />
+        <rect x="24" y="8" width="8" height="8" fill="currentColor" />
+        <rect x="32" y="8" width="8" height="8" fill="currentColor" />
+        <rect x="40" y="8" width="8" height="8" fill="currentColor" />
+        <rect x="48" y="8" width="8" height="8" fill="currentColor" />
+        <rect x="56" y="8" width="8" height="8" fill="currentColor" />
+        <rect x="0" y="16" width="8" height="8" fill="currentColor" />
+        <rect x="8" y="16" width="8" height="8" fill="currentColor" />
+        <rect x="16" y="16" width="8" height="8" fill="currentColor" />
+        <rect x="24" y="16" width="8" height="8" fill="currentColor" />
+        <rect x="32" y="16" width="8" height="8" fill="currentColor" />
+        <rect x="40" y="16" width="8" height="8" fill="currentColor" />
+        <rect x="48" y="16" width="8" height="8" fill="currentColor" />
+        <rect x="56" y="16" width="8" height="8" fill="currentColor" />
+        <rect x="64" y="16" width="8" height="8" fill="currentColor" />
+        <rect x="72" y="16" width="8" height="8" fill="currentColor" />
       </g>
     </svg>
   )
@@ -117,32 +146,21 @@ export default function Background() {
             />
           ))}
         </div>
-        <div className="aurora-blob aurora-blob-1" />
-        <div className="aurora-blob aurora-blob-2" />
-        <div className="aurora-blob aurora-blob-3" />
-        <AuroraCurtain
-          id="aurora-a"
-          className="aurora-curtain-1"
-          base="30,240,140"
-          bright="215,255,230"
-          path="M0,360 C180,150 380,430 680,240 C980,60 1220,400 1440,210 L1440,520 L0,520 Z"
-        />
-        <AuroraCurtain
-          id="aurora-b"
-          className="aurora-curtain-2"
-          base="34,211,238"
-          bright="200,245,255"
-          path="M0,280 C240,430 480,120 760,300 C1040,470 1240,140 1440,300 L1440,520 L0,520 Z"
-        />
-        <div className="aurora-horizon" />
+        <div className="pixel-ground night" />
+        <PixelBush style={{ left: '18%' }} />
+        <PixelBush style={{ left: '72%' }} />
       </div>
 
       <div className="bg-layer sky">
-        <div className="sun" />
-        <div className="sky-haze" />
+        <PixelSun />
         {CLOUDS.map((c) => (
-          <Cloud key={c.id} {...c} />
+          <PixelCloud key={c.id} {...c} />
         ))}
+        <div className="pixel-ground" />
+        <PixelBush style={{ left: '10%' }} />
+        <PixelBush style={{ left: '38%' }} />
+        <PixelBush style={{ left: '62%' }} />
+        <PixelBush style={{ left: '86%' }} />
       </div>
     </div>
   )

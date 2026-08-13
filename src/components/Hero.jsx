@@ -107,9 +107,7 @@ export default function Hero() {
           <a href={profile.socials.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
             <LinkedinIcon />
           </a>
-          <a href={profile.socials.twitter} target="_blank" rel="noreferrer" aria-label="X">
-            <XIcon />
-          </a>
+          
         </div>
       </div>
 
@@ -144,10 +142,10 @@ function LinkedinIcon() {
   )
 }
 
-function XIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M18.24 2.25h3.31l-7.23 8.26L22.5 21.75h-6.66l-5.22-6.82-5.97 6.82H1.34l7.73-8.84L1.5 2.25h6.83l4.72 6.23 5.19-6.23Zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64Z" />
-    </svg>
-  )
-}
+// function XIcon() {
+//   return (
+//     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+//       <path d="M18.24 2.25h3.31l-7.23 8.26L22.5 21.75h-6.66l-5.22-6.82-5.97 6.82H1.34l7.73-8.84L1.5 2.25h6.83l4.72 6.23 5.19-6.23Zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64Z" />
+//     </svg>
+//   )
+// }
