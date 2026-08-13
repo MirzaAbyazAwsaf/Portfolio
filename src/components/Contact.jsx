@@ -41,7 +41,7 @@ export default function Contact() {
     <section id="contact" className="section">
       <Reveal>
         <h2 className="section-title">
-          <span className="section-num">05.</span> Contact Me
+          <span className="section-num">05.</span> Lets Connect!
         </h2>
       </Reveal>
 
@@ -62,9 +62,7 @@ export default function Contact() {
             <a href={profile.socials.linkedin} target="_blank" rel="noreferrer">
               LinkedIn
             </a>
-            <a href={profile.socials.twitter} target="_blank" rel="noreferrer">
-              X / Twitter
-            </a>
+           
           </div>
         </Reveal>
 

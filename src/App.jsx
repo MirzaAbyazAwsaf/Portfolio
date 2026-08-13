@@ -6,10 +6,12 @@ import Experience from './components/Experience'
 import TechStack from './components/TechStack'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Background from './components/Background'
 
 function App() {
   return (
     <>
+      <Background />
       <Navbar />
       <main>
         <Hero />

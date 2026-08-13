@@ -1,36 +1,29 @@
 export const profile = {
-  name: 'Your Name',
-  firstName: 'Your',
-  lastName: 'Name',
-  role: 'Full-Stack Developer',
+  name: 'Mirza Abyaz Awsaf',
+  firstName: 'Mirza',
+  lastName: 'Abyaz Awsaf',
+  role: 'AI_Engineer',
   tagline: "I design and build fast, accessible and delightful web experiences.",
   bio: 'Passionate developer who loves turning complex problems into simple, elegant solutions. When I am not coding, you will find me exploring new tech, writing, or hiking.',
-  email: 'you@example.com',
-  phone: '+1 234 567 8900',
-  location: 'San Francisco, CA',
-  resumeUrl: '/resume.pdf',
+  email: 'awsafabyaz2@gmail.com',
+  phone: '+8801912086413',
+  location: 'Dhaka, Bangladesh',
+  resumeUrl: 'E:\\AI tools\\Portfolio\\src\\assets\\resume.pdf',
   available: true,
   socials: {
-    github: 'https://github.com/yourname',
-    linkedin: 'https://linkedin.com/in/yourname',
-    twitter: 'https://x.com/yourname',
-    mailto: 'mailto:you@example.com',
+    github: 'https://github.com/MirzaAbyazAwsaf',
+    linkedin: "https://www.linkedin.com/in/mirza-abyaz-awsaf-3b6a2132b/",
+    mailto: 'mailto:awsafabyaz2@gmail.com',
   },
 }
 
 export const roles = [
-  'Full-Stack Developer',
-  'React Enthusiast',
-  'UI/UX Explorer',
-  'Problem Solver',
-  'Clean Code Advocate',
+  
+ 
 ]
 
 export const stats = [
-  { value: 3, suffix: '+', label: 'Years Experience' },
-  { value: 20, suffix: '+', label: 'Projects Built' },
-  { value: 12, suffix: '+', label: 'Happy Clients' },
-  { value: 5, suffix: 'k+', label: 'Lines of Code' },
+  
 ]
 
 export const aboutPoints = [
@@ -142,35 +135,23 @@ export const experience = [
   },
 ]
 
-export const techStack = [
+export const techStackTop = [
+  { name: 'Python', logo: '/logos/python.svg' },
+  { name: 'React', logo: '/logos/react.svg' },
+  { name: 'JavaScript', logo: '/logos/javascript.svg' },
+  { name: 'TypeScript', logo: '/logos/typescript.svg' },
+  { name: 'Node.js', logo: '/logos/nodejs.svg' },
+  { name: 'Tailwind CSS', logo: '/logos/tailwindcss.svg' },
+]
+
+export const techStackBottom = [
   {
-    category: 'Frontend',
-    icon: 'frontend',
-    skills: [
-      { name: 'React / Next.js', level: 95 },
-      { name: 'TypeScript', level: 90 },
-      { name: 'CSS / Tailwind', level: 88 },
-      { name: 'Redux / Zustand', level: 82 },
-    ],
+    name: 'LangChain',
+    icon: 'M13.796 0a6.93 6.93 0 0 0-4.91 2.019L5.451 5.455l3.273 3.27 3.432-3.432a2.284 2.284 0 0 1 3.277 0 2.28 2.28 0 0 1 0 3.275L12 12.001l3.273 3.273 3.433-3.435c2.692-2.692 2.692-7.127 0-9.82A6.92 6.92 0 0 0 13.796 0m-5.07 8.728-3.433 3.434c-2.692 2.693-2.692 7.126 0 9.819A6.92 6.92 0 0 0 10.203 24a6.93 6.93 0 0 0 4.911-2.02l3.432-3.432-3.271-3.272-3.433 3.433a2.284 2.284 0 0 1-3.277 0 2.28 2.28 0 0 1 0-3.276L12 12z',
   },
-  {
-    category: 'Backend',
-    icon: 'backend',
-    skills: [
-      { name: 'Node.js / Express', level: 88 },
-      { name: 'Python / Django', level: 75 },
-      { name: 'GraphQL / REST', level: 85 },
-      { name: 'PostgreSQL / MongoDB', level: 80 },
-    ],
-  },
-  {
-    category: 'Tools & Cloud',
-    icon: 'tools',
-    skills: [
-      { name: 'Git / GitHub Actions', level: 90 },
-      { name: 'Docker / Kubernetes', level: 72 },
-      { name: 'AWS / Vercel', level: 78 },
-      { name: 'Figma / UX', level: 70 },
-    ],
-  },
+  { name: 'HTML5', logo: '/logos/html5.svg' },
+  { name: 'CSS3', logo: '/logos/css3.svg' },
+  { name: 'Git', logo: '/logos/git.svg' },
+  { name: 'Docker', logo: '/logos/docker.svg' },
+  { name: 'PostgreSQL', logo: '/logos/postgresql.svg' },
 ]
