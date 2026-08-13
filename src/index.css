@@ -813,21 +813,18 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Press Start 2P', sans-serif;
-  font-size: 40px;
-  color: var(--on-accent);
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background: var(--accent);
+  border: 3px solid var(--border-strong);
   box-shadow: 0 6px 0 var(--border-strong);
   position: relative;
   overflow: hidden;
   animation: avatar-float 4s ease-in-out infinite;
 }
 
-.avatar::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), transparent 50%);
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @keyframes avatar-float {
@@ -1091,7 +1088,7 @@ section {
   top: 4px;
   bottom: 4px;
   width: 3px;
-  background: linear-gradient(180deg, var(--accent), var(--accent-2), transparent);
+  background: var(--accent);
 }
 
 .timeline-item {
@@ -1221,6 +1218,10 @@ section {
   border: 2px solid var(--border-strong);
   mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+html[data-theme='light'] .belt {
+  border-color: #000;
 }
 
 .belt::before,

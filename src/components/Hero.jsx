@@ -116,12 +116,6 @@ export default function Hero() {
           <Counter key={s.label} value={s.value} suffix={s.suffix} label={s.label} />
         ))}
       </div>
-
-      <a className="scroll-hint" href="#about" aria-label="Scroll down">
-        <span className="mouse">
-          <span className="wheel" />
-        </span>
-      </a>
     </section>
   )
 }

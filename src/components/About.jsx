@@ -2,11 +2,6 @@ import { profile, aboutPoints } from '../data'
 import Reveal from './Reveal'
 
 export default function About() {
-  const initials = profile.name
-    .split(' ')
-    .map((n) => n[0])
-    .join('')
-
   return (
     <section id="about" className="section">
       <Reveal>
@@ -18,7 +13,7 @@ export default function About() {
       <div className="about-grid">
         <Reveal className="about-left" delay={100}>
           <div className="avatar">
-            <span>{initials}</span>
+            <img src="public\profile.jpg" alt={`${profile.name}'s profile picture`} />
           </div>
           <div className="quick-facts">
             <p>
