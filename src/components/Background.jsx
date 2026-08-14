@@ -26,17 +26,16 @@ const CLOUDS = [
   { id: 'cloud-e', top: '17%', scale: 0.75, dur: '85s', delay: '-28s', opacity: 0.95 },
 ]
 
-const COINS = Array.from({ length: 2 }, () => ({
+const COINS = Array.from({ length: 3 + Math.floor(Math.random() * 2) }, () => ({
   left: 5 + Math.random() * 85,
-  top: 8 + Math.random() * 38,
+  top: 8 + Math.random() * 45,
   delay: Math.random() * 5,
 }))
 
-const BOX_CHAINS = Array.from({ length: 2 }, () => ({
-  left: 3 + Math.random() * 85,
-  top: 5 + Math.random() * 50,
-  delay: Math.random() * 3,
-}))
+const BOX_CHAINS = [
+  { left: 4, top: 12 + Math.random() * 30, delay: Math.random() * 3 },
+  { left: 70, top: 12 + Math.random() * 30, delay: Math.random() * 3 },
+]
 
 function PixelCloud({ top, scale, dur, delay, opacity }) {
   return (
