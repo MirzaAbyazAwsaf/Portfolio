@@ -159,30 +159,13 @@ function PixelCoin({ style }) {
   )
 }
 
-const BLOCK_COLORS = {
-  box1: { border: '#b45f1f', face: '#ffb500', highlight: '#ffe08a', dark: '#3a2a00' },
-  box2: { border: '#8c2f22', face: '#e0452f', highlight: '#f5856b', dark: '#4a140c' },
+const BOX_IMG = {
+  box1: `${import.meta.env.BASE_URL}box1.png`,
+  box2: `${import.meta.env.BASE_URL}box2.png`,
 }
 
 function Block({ variant }) {
-  const c = BLOCK_COLORS[variant]
-  return (
-    <svg className="block" viewBox="0 0 32 32" aria-hidden="true">
-      <g shapeRendering="crispEdges">
-        <rect x="0" y="0" width="32" height="4" fill={c.border} />
-        <rect x="0" y="28" width="32" height="4" fill={c.border} />
-        <rect x="0" y="0" width="4" height="32" fill={c.border} />
-        <rect x="28" y="0" width="4" height="32" fill={c.border} />
-        <rect x="4" y="4" width="24" height="24" fill={c.face} />
-        <rect x="4" y="4" width="8" height="4" fill={c.highlight} />
-        <rect x="4" y="8" width="4" height="4" fill={c.highlight} />
-        <rect x="8" y="4" width="4" height="4" fill={c.dark} />
-        <rect x="20" y="4" width="4" height="4" fill={c.dark} />
-        <rect x="8" y="20" width="4" height="4" fill={c.dark} />
-        <rect x="20" y="20" width="4" height="4" fill={c.dark} />
-      </g>
-    </svg>
-  )
+  return <img className="block" src={BOX_IMG[variant]} alt="" />
 }
 
 const BOX_CHAIN = ['box2', 'box1', 'box2', 'box1', 'box2']

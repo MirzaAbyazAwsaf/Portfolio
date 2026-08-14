@@ -224,6 +224,7 @@ body {
   width: 40px;
   height: 40px;
   flex-shrink: 0;
+  object-fit: cover;
 }
 
 @keyframes block-bob {
