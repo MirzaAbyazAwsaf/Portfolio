@@ -32,11 +32,6 @@ const COINS = Array.from({ length: 2 }, () => ({
   delay: Math.random() * 5,
 }))
 
-const QUESTION_BLOCKS = Array.from({ length: 1 }, () => ({
-  left: 5 + Math.random() * 85,
-  top: 8 + Math.random() * 38,
-}))
-
 function PixelCloud({ top, scale, dur, delay, opacity }) {
   return (
     <svg
@@ -164,29 +159,41 @@ function PixelCoin({ style }) {
   )
 }
 
-function QuestionBlock({ style }) {
+const BLOCK_COLORS = {
+  box1: { border: '#b45f1f', face: '#ffb500', highlight: '#ffe08a', dark: '#3a2a00' },
+  box2: { border: '#8c2f22', face: '#e0452f', highlight: '#f5856b', dark: '#4a140c' },
+}
+
+function Block({ variant }) {
+  const c = BLOCK_COLORS[variant]
   return (
-    <svg className="question-block" viewBox="0 0 32 32" style={style} aria-hidden="true">
+    <svg className="block" viewBox="0 0 32 32" aria-hidden="true">
       <g shapeRendering="crispEdges">
-        <rect x="0" y="0" width="32" height="4" fill="#b45f1f" />
-        <rect x="0" y="28" width="32" height="4" fill="#b45f1f" />
-        <rect x="0" y="0" width="4" height="32" fill="#b45f1f" />
-        <rect x="28" y="0" width="4" height="32" fill="#b45f1f" />
-        <rect x="4" y="4" width="24" height="24" fill="#ffb500" />
-        <rect x="4" y="4" width="8" height="4" fill="#ffe08a" />
-        <rect x="4" y="8" width="4" height="4" fill="#ffe08a" />
-        <rect x="8" y="4" width="4" height="8" fill="#3a2a00" />
-        <rect x="12" y="4" width="4" height="4" fill="#3a2a00" />
-        <rect x="16" y="4" width="4" height="4" fill="#3a2a00" />
-        <rect x="20" y="4" width="4" height="4" fill="#3a2a00" />
-        <rect x="4" y="8" width="4" height="4" fill="#3a2a00" />
-        <rect x="20" y="8" width="4" height="4" fill="#3a2a00" />
-        <rect x="20" y="12" width="4" height="4" fill="#3a2a00" />
-        <rect x="16" y="16" width="4" height="4" fill="#3a2a00" />
-        <rect x="12" y="20" width="4" height="4" fill="#3a2a00" />
-        <rect x="12" y="24" width="4" height="4" fill="#3a2a00" />
+        <rect x="0" y="0" width="32" height="4" fill={c.border} />
+        <rect x="0" y="28" width="32" height="4" fill={c.border} />
+        <rect x="0" y="0" width="4" height="32" fill={c.border} />
+        <rect x="28" y="0" width="4" height="32" fill={c.border} />
+        <rect x="4" y="4" width="24" height="24" fill={c.face} />
+        <rect x="4" y="4" width="8" height="4" fill={c.highlight} />
+        <rect x="4" y="8" width="4" height="4" fill={c.highlight} />
+        <rect x="8" y="4" width="4" height="4" fill={c.dark} />
+        <rect x="20" y="4" width="4" height="4" fill={c.dark} />
+        <rect x="8" y="20" width="4" height="4" fill={c.dark} />
+        <rect x="20" y="20" width="4" height="4" fill={c.dark} />
       </g>
     </svg>
+  )
+}
+
+const BOX_CHAIN = ['box2', 'box1', 'box2', 'box1', 'box2']
+
+function BoxChain({ style }) {
+  return (
+    <div className="box-chain" style={style}>
+      {BOX_CHAIN.map((variant, i) => (
+        <Block key={i} variant={variant} />
+      ))}
+    </div>
   )
 }
 
@@ -220,9 +227,7 @@ export default function Background() {
             />
           ))}
         </div>
-        {QUESTION_BLOCKS.map((b, i) => (
-          <QuestionBlock key={i} style={{ top: `${b.top}%`, left: `${b.left}%` }} />
-        ))}
+        <BoxChain style={{ top: '24%', left: '30%' }} />
         {COINS.map((c, i) => (
           <PixelCoin
             key={i}
@@ -240,9 +245,7 @@ export default function Background() {
         {CLOUDS.map((c) => (
           <PixelCloud key={c.id} {...c} />
         ))}
-        {QUESTION_BLOCKS.map((b, i) => (
-          <QuestionBlock key={i} style={{ top: `${b.top}%`, left: `${b.left}%` }} />
-        ))}
+        <BoxChain style={{ top: '18%', left: '58%' }} />
         {COINS.map((c, i) => (
           <PixelCoin
             key={i}

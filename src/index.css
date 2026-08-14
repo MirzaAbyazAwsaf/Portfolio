@@ -212,11 +212,18 @@ body {
   box-shadow: 0 8px 0 rgba(20, 90, 45, 0.65);
 }
 
-.question-block {
+.box-chain {
   position: absolute;
-  width: 56px;
-  height: 56px;
+  display: flex;
+  width: max-content;
   animation: block-bob 3s ease-in-out infinite;
+}
+
+.block {
+  display: block;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
 }
 
 @keyframes block-bob {
