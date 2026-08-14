@@ -32,6 +32,12 @@ const COINS = Array.from({ length: 2 }, () => ({
   delay: Math.random() * 5,
 }))
 
+const BOX_CHAINS = Array.from({ length: 3 }, () => ({
+  left: 3 + Math.random() * 85,
+  top: 5 + Math.random() * 50,
+  delay: Math.random() * 3,
+}))
+
 function PixelCloud({ top, scale, dur, delay, opacity }) {
   return (
     <svg
@@ -195,7 +201,16 @@ export default function Background() {
             />
           ))}
         </div>
-        <BoxChain style={{ top: '24%', left: '30%' }} />
+        {BOX_CHAINS.map((b, i) => (
+          <BoxChain
+            key={i}
+            style={{
+              top: `${b.top}%`,
+              left: `${b.left}%`,
+              animationDelay: `${b.delay}s`,
+            }}
+          />
+        ))}
         {COINS.map((c, i) => (
           <PixelCoin
             key={i}
@@ -213,7 +228,16 @@ export default function Background() {
         {CLOUDS.map((c) => (
           <PixelCloud key={c.id} {...c} />
         ))}
-        <BoxChain style={{ top: '18%', left: '58%' }} />
+        {BOX_CHAINS.map((b, i) => (
+          <BoxChain
+            key={i}
+            style={{
+              top: `${b.top}%`,
+              left: `${b.left}%`,
+              animationDelay: `${b.delay}s`,
+            }}
+          />
+        ))}
         {COINS.map((c, i) => (
           <PixelCoin
             key={i}
