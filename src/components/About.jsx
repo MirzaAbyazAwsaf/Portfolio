@@ -13,7 +13,7 @@ export default function About() {
       <div className="about-grid">
         <Reveal className="about-left" delay={100}>
           <div className="avatar">
-            <img src="public\profile.jpg" alt={`${profile.name}'s profile picture`} />
+            <img src={`${import.meta.env.BASE_URL}profile.jpg`} alt={`${profile.name}'s profile picture`} />
           </div>
           <div className="quick-facts">
             <p>

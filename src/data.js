@@ -1,3 +1,7 @@
+import resumePdf from './assets/resume.pdf'
+
+const asset = (path) => `${import.meta.env.BASE_URL}${path}`
+
 export const profile = {
   name: 'Mirza Abyaz Awsaf',
   firstName: 'Awsaf',
@@ -8,7 +12,7 @@ export const profile = {
   email: 'awsafabyaz2@gmail.com',
   phone: '+8801912086413',
   location: 'Dhaka, Bangladesh',
-  resumeUrl: 'src/assets/resume.pdf',
+  resumeUrl: resumePdf,
   available: true,
   socials: {
     github: 'https://github.com/MirzaAbyazAwsaf',
@@ -111,12 +115,12 @@ export const experience = [
 ]
 
 export const techStackTop = [
-  { name: 'Python', logo: '/logos/python.svg' },
-  { name: 'React', logo: '/logos/react.svg' },
-  { name: 'JavaScript', logo: '/logos/javascript.svg' },
-  { name: 'TypeScript', logo: '/logos/typescript.svg' },
-  { name: 'Node.js', logo: '/logos/nodejs.svg' },
-  { name: 'Tailwind CSS', logo: '/logos/tailwindcss.svg' },
+  { name: 'Python', logo: asset('logos/python.svg') },
+  { name: 'React', logo: asset('logos/react.svg') },
+  { name: 'JavaScript', logo: asset('logos/javascript.svg') },
+  { name: 'TypeScript', logo: asset('logos/typescript.svg') },
+  { name: 'Node.js', logo: asset('logos/nodejs.svg') },
+  { name: 'Tailwind CSS', logo: asset('logos/tailwindcss.svg') },
 ]
 
 export const techStackBottom = [
@@ -124,14 +128,14 @@ export const techStackBottom = [
     name: 'LangChain',
     icon: 'M13.796 0a6.93 6.93 0 0 0-4.91 2.019L5.451 5.455l3.273 3.27 3.432-3.432a2.284 2.284 0 0 1 3.277 0 2.28 2.28 0 0 1 0 3.275L12 12.001l3.273 3.273 3.433-3.435c2.692-2.692 2.692-7.127 0-9.82A6.92 6.92 0 0 0 13.796 0m-5.07 8.728-3.433 3.434c-2.692 2.693-2.692 7.126 0 9.819A6.92 6.92 0 0 0 10.203 24a6.93 6.93 0 0 0 4.911-2.02l3.432-3.432-3.271-3.272-3.433 3.433a2.284 2.284 0 0 1-3.277 0 2.28 2.28 0 0 1 0-3.276L12 12z',
   },
-  { name: 'OpenCV', logo: '/logos/opencv.svg' },
-  { name: 'Supervision', logo: '/logos/supervision.svg' },
-  { name: 'FastAPI', logo: '/logos/fastapi.svg' },
-  { name: 'HTML5', logo: '/logos/html5.svg' },
-  { name: 'CSS3', logo: '/logos/css3.svg' },
-  { name: 'Git', logo: '/logos/git.svg' },
-  { name: 'Docker', logo: '/logos/docker.svg' },
-  { name: 'PostgreSQL', logo: '/logos/postgresql.svg' },
-  { name: 'SQLite', logo: '/logos/sqlite.svg' },
-  { name: 'Oracle DB', logo: '/logos/oracle.svg' },
+  { name: 'OpenCV', logo: asset('logos/opencv.svg') },
+  { name: 'Supervision', logo: asset('logos/supervision.svg') },
+  { name: 'FastAPI', logo: asset('logos/fastapi.svg') },
+  { name: 'HTML5', logo: asset('logos/html5.svg') },
+  { name: 'CSS3', logo: asset('logos/css3.svg') },
+  { name: 'Git', logo: asset('logos/git.svg') },
+  { name: 'Docker', logo: asset('logos/docker.svg') },
+  { name: 'PostgreSQL', logo: asset('logos/postgresql.svg') },
+  { name: 'SQLite', logo: asset('logos/sqlite.svg') },
+  { name: 'Oracle DB', logo: asset('logos/oracle.svg') },
 ]

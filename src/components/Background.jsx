@@ -137,7 +137,7 @@ function PixelBush({ style }) {
   )
 }
 
-const MUSHROOM_IMG = '/mushrooms.png'
+const MUSHROOM_IMG = `${import.meta.env.BASE_URL}mushrooms.png`
 
 function PixelCoin({ style }) {
   return (
