@@ -1270,13 +1270,13 @@ html[data-theme='light'] .belt {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translateX(var(--belt-shift, 0px));
   }
 }
 
 @keyframes belt-right {
   from {
-    transform: translateX(-50%);
+    transform: translateX(var(--belt-shift, 0px));
   }
   to {
     transform: translateX(0);
