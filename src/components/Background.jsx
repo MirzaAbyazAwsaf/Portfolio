@@ -134,27 +134,12 @@ function PixelBush({ style }) {
 
 const MUSHROOM_IMG = `${import.meta.env.BASE_URL}mushrooms.png`
 
+const COIN_IMG = `${import.meta.env.BASE_URL}coin.png`
+
 function PixelCoin({ style }) {
   return (
     <span className="coin-wrap" style={style}>
-      <svg className="coin-svg" viewBox="0 0 16 16" aria-hidden="true">
-        <g shapeRendering="crispEdges">
-          <rect x="4" y="0" width="8" height="2" fill="#ffd21a" />
-          <rect x="2" y="2" width="12" height="2" fill="#ffd21a" />
-          <rect x="2" y="4" width="12" height="2" fill="#ffd21a" />
-          <rect x="1" y="6" width="14" height="2" fill="#ffd21a" />
-          <rect x="1" y="8" width="14" height="2" fill="#ffd21a" />
-          <rect x="2" y="10" width="12" height="2" fill="#ffd21a" />
-          <rect x="2" y="12" width="12" height="2" fill="#ffd21a" />
-          <rect x="4" y="14" width="8" height="2" fill="#ffd21a" />
-          <rect x="2" y="2" width="4" height="2" fill="#ffe45d" />
-          <rect x="2" y="4" width="2" height="2" fill="#ffe45d" />
-          <rect x="1" y="6" width="4" height="2" fill="#ffe45d" />
-          <rect x="11" y="8" width="4" height="2" fill="#d9a500" />
-          <rect x="10" y="10" width="4" height="2" fill="#d9a500" />
-          <rect x="10" y="12" width="2" height="2" fill="#d9a500" />
-        </g>
-      </svg>
+      <img className="coin-svg" src={COIN_IMG} alt="" />
     </span>
   )
 }
