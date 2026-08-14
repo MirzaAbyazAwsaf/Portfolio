@@ -32,7 +32,7 @@ const COINS = Array.from({ length: 2 }, () => ({
   delay: Math.random() * 5,
 }))
 
-const BOX_CHAINS = Array.from({ length: 3 }, () => ({
+const BOX_CHAINS = Array.from({ length: 2 }, () => ({
   left: 3 + Math.random() * 85,
   top: 5 + Math.random() * 50,
   delay: Math.random() * 3,
