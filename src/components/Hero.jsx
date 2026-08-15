@@ -87,7 +87,6 @@ export default function Hero() {
         </h1>
         <p className="hero-type">
           <span className="type-text">{typed}</span>
-          <span className="caret" />
         </p>
         <p className="hero-tagline">{profile.tagline}</p>
 
