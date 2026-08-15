@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { projects, projectFilters } from '../data'
 import Reveal from './Reveal'
 
@@ -103,6 +103,31 @@ export default function Projects() {
 }
 
 function DemoModal({ project, onClose }) {
+  const [index, setIndex] = useState(0)
+  const [zoom, setZoom] = useState(false)
+  const count = project.shots.length
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'Escape') {
+        if (zoom) setZoom(false)
+        else onClose()
+      }
+      if (e.key === 'ArrowRight') setIndex((i) => (i + 1) % count)
+      if (e.key === 'ArrowLeft') setIndex((i) => (i - 1 + count) % count)
+    }
+    window.addEventListener('keydown', onKey)
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      document.body.style.overflow = prevOverflow
+    }
+  }, [onClose, count, zoom])
+
+  const prev = () => setIndex((i) => (i - 1 + count) % count)
+  const next = () => setIndex((i) => (i + 1) % count)
+
   return (
     <div className="demo-overlay" onClick={onClose}>
       <div className="demo-window" onClick={(e) => e.stopPropagation()}>
@@ -115,14 +140,37 @@ function DemoModal({ project, onClose }) {
             <CloseIcon />
           </button>
         </div>
-        <div className="demo-video">
-          {project.video ? (
-            <video src={project.video} controls autoPlay playsInline />
+        <div className="demo-shots">
+          {count > 0 ? (
+            <>
+              <button className="shot-img" aria-label="Enlarge screenshot" onClick={() => setZoom(true)}>
+                <img src={project.shots[index]} alt={`${project.title} screenshot`} />
+              </button>
+              {count > 1 && (
+                <div className="shot-nav">
+                  <button className="shot-arrow" aria-label="Previous screenshot" onClick={prev}>
+                    ◀
+                  </button>
+                  <span className="shot-count">
+                    {index + 1} / {count}
+                  </span>
+                  <button className="shot-arrow" aria-label="Next screenshot" onClick={next}>
+                    ▶
+                  </button>
+                </div>
+              )}
+            </>
           ) : (
-            <span className="demo-empty">Demo video coming soon</span>
+            <span className="demo-empty">No screenshots yet</span>
           )}
         </div>
       </div>
+
+      {zoom && (
+        <div className="demo-zoom" onClick={() => setZoom(false)}>
+          <img src={project.shots[index]} alt={`${project.title} enlarged`} />
+        </div>
+      )}
     </div>
   )
 }
