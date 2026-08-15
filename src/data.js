@@ -54,7 +54,7 @@ export const projects = [
     category: 'Web App',
     tags: ['Python', 'Oracle Database', 'PyQt5', 'QtDesigner'],
     link: '#',
-    demo: '#',
+    video: '',
     featured: true,
   },
   {
@@ -63,7 +63,7 @@ export const projects = [
     category: 'Mobile',
     tags: ['Python', 'OpenCV', 'Oracle Database', 'PyQt5'],
     link: '#',
-    demo: '#',
+    video: '',
     featured: false,
   },
   {
@@ -73,7 +73,7 @@ export const projects = [
     category: 'Professional Project',
     tags: ['Python', 'OpenCV', 'Oracle Database', 'PyQt5'],
     link: '#',
-    demo: '#',
+    video: '',
     featured: true,
   },
   {
@@ -82,7 +82,7 @@ export const projects = [
     category: 'Web App',
     tags: ['FastAPI', 'React', 'sqlite'],
     link: '#',
-    demo: '#',
+    video: '',
     featured: false,
   },
   

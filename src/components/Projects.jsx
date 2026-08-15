@@ -2,7 +2,7 @@ import { useState, useRef } from 'react'
 import { projects, projectFilters } from '../data'
 import Reveal from './Reveal'
 
-function ProjectCard({ project, onExpand, expanded }) {
+function ProjectCard({ project, onExpand, expanded, onDemo }) {
   const cardRef = useRef(null)
 
   const handleMove = (e) => {
@@ -30,11 +30,9 @@ function ProjectCard({ project, onExpand, expanded }) {
           {project.featured && <span className="featured-tag">Featured</span>}
         </div>
         <div className="project-links">
-          {project.demo && (
-            <a href={project.demo} target="_blank" rel="noreferrer" aria-label="Live demo">
-              <ExternalIcon />
-            </a>
-          )}
+          <button className="link-btn" aria-label="Watch demo" onClick={() => onDemo(project)}>
+            <ExternalIcon />
+          </button>
           {project.link && (
             <a href={project.link} target="_blank" rel="noreferrer" aria-label="Source code">
               <GithubIcon />
@@ -60,6 +58,7 @@ function ProjectCard({ project, onExpand, expanded }) {
 export default function Projects() {
   const [filter, setFilter] = useState('All')
   const [expanded, setExpanded] = useState(null)
+  const [demo, setDemo] = useState(null)
 
   const visible = projects.filter((p) => filter === 'All' || p.category === filter)
 
@@ -92,11 +91,47 @@ export default function Projects() {
               project={p}
               expanded={expanded === p.title}
               onExpand={(title) => setExpanded(expanded === title ? null : title)}
+              onDemo={setDemo}
             />
           </Reveal>
         ))}
       </div>
+
+      {demo && <DemoModal project={demo} onClose={() => setDemo(null)} />}
     </section>
+  )
+}
+
+function DemoModal({ project, onClose }) {
+  return (
+    <div className="demo-overlay" onClick={onClose}>
+      <div className="demo-window" onClick={(e) => e.stopPropagation()}>
+        <div className="demo-bar">
+          <div className="demo-bar-info">
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
+          </div>
+          <button className="demo-close" aria-label="Close demo" onClick={onClose}>
+            <CloseIcon />
+          </button>
+        </div>
+        <div className="demo-video">
+          {project.video ? (
+            <video src={project.video} controls autoPlay playsInline />
+          ) : (
+            <span className="demo-empty">Demo video coming soon</span>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function CloseIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+      <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+    </svg>
   )
 }
 
