@@ -1282,7 +1282,7 @@ html[data-theme='light'] .shot-img img {
 .project-tags li {
   font-family: 'Press Start 2P', sans-serif;
   font-size: 9px;
-  color: var(--white);
+  color: #ffffff;
   padding: 4px 8px;
   background: var(--accent-soft);
 }
