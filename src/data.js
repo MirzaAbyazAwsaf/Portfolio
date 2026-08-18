@@ -105,9 +105,9 @@ export const experience = [
     company: 'Regnum Resources Ltd.',
     period: 'Dec 2024 — Feb 2025',
     points: [
-      'Shipped 15+ features across web and mobile used by 50k monthly active users.',
-      'Designed REST APIs and data models powering the core product.',
-      'Introduced automated CI/CD pipeline cutting release time in half.',
+      'Collaborated in the making of the TMS software espicially in the RFID intregation',
+      'Assisted in debugging and optimizing the performance of the TMS application.',
+      'Developed the frist vrsion of the AVC model fo the TMS software',
     ],
     stack: [],
   },
