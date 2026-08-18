@@ -13,7 +13,7 @@
   --accent-soft: rgba(255, 210, 26, 0.16);
   --on-accent: #3a2d00;
   --shadow: 0 6px 0 rgba(0, 0, 0, 0.4);
-  --nav-bg: rgba(20, 32, 84, 0.88);
+  --nav-bg: rgba(20, 32, 84, 0.10);
 }
 
 :root[data-theme='light'] {
@@ -31,7 +31,7 @@
   --accent-soft: rgba(232, 32, 31, 0.1);
   --on-accent: #ffffff;
   --shadow: 0 6px 0 rgba(10, 40, 90, 0.3);
-  --nav-bg: rgba(120, 165, 245, 0.88);
+  --nav-bg: rgba(120, 165, 245, 0.10);
 }
 
 * {
@@ -1285,6 +1285,10 @@ html[data-theme='light'] .shot-img img {
   color: #ffffff;
   padding: 4px 8px;
   background: var(--accent-soft);
+}
+
+html[data-theme='light'] .project-tags li {
+  color: #000000;
 }
 
 .expand-btn {
